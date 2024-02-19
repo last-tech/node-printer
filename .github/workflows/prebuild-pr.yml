@@ -13,7 +13,6 @@ jobs:
         with:
           node-version: 20.x
       - uses: actions/checkout@v1
-      - run: node-gyp configure --msvs_version=2022
       - run: npm i
       - name: Prebuild
         run: |
