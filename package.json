@@ -19,17 +19,14 @@
   "devDependencies": {
     "node-abi": "^3.54.0",
     "node-gyp": "^10.0.1",
-    "nodeunit": "*",
-    "patch-package": "^6.4.7",
-    "prebuild": "^11.0.4",
-    "prebuild-ci": "^4.0.0"
+    "nodeunit": "^0.11.3",
+    "prebuild": "^13.0.0"
   },
   "engines": {
     "node": ">= 4.0.0"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "apply-patches": "patch-package",
     "prebuild-all": "prebuild --all --force --strip --verbose --openssl_fips=X",
     "prebuild": "prebuild",
     "rebuild": "node-gyp rebuild",
