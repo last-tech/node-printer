@@ -47,6 +47,7 @@ jobs:
         with:
           node-version: 20.x
       - uses: actions/checkout@v1
+      - run: npm install --g --production windows-build-tools
       - run: npm i
       - name: Prebuild
         run: |
