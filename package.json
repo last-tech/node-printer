@@ -17,10 +17,10 @@
     "url": "git://github.com/thiagoelg/node-printer.git"
   },
   "devDependencies": {
-    "node-abi": "^3.8.0",
+    "node-abi": "^3.54.0",
     "nodeunit": "*",
     "patch-package": "^6.4.7",
-    "prebuild": "^11.0.3",
+    "prebuild": "^11.0.4",
     "prebuild-ci": "^4.0.0"
   },
   "engines": {
@@ -48,7 +48,7 @@
   "main": "./lib/printer",
   "dependencies": {
     "nan": "^2.18.0",
-    "prebuild-install": "^7.0.1"
+    "prebuild-install": "^7.1.1"
   },
   "types": "types/index.d.ts"
 }
