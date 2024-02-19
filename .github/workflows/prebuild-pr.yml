@@ -14,6 +14,7 @@ jobs:
           node-version: 20.x
       - uses: actions/checkout@v4
       - run: npm i
+      - run: npm config set openssl_fips ''
       - name: Prebuild
         run: |
           npm run prebuild -- --strip --all --arch ia32
