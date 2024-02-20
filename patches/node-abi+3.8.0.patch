@@ -2,7 +2,7 @@ diff --git a/node_modules/node-abi/abi_registry.json b/node_modules/node-abi/abi
 index 15bbb76..8d6b059 100644
 --- a/node_modules/node-abi/abi_registry.json
 +++ b/node_modules/node-abi/abi_registry.json
-@@ -52,7 +52,7 @@
+@@ -52,14 +52,14 @@
    },
    {
      "runtime": "node",
@@ -11,3 +11,11 @@ index 15bbb76..8d6b059 100644
      "lts": false,
      "future": false,
      "abi": "102"
+   },
+   {
+     "runtime": "node",
+-    "target": "18.0.0",
++    "target": "18.10.0",
+     "lts": [
+       "2022-10-25",
+       "2023-10-18"

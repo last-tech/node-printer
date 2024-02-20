@@ -57,6 +57,14 @@
             ]
           }
         }],
+        ['OS=="win"', {
+            'defines': [
+              'NOMINMAX' # allow std::min/max to work
+            ],
+            'cflags' : [
+              "-O2"
+            ],
+        }],
         ['OS=="mac"', {
           'cflags':[
             "-stdlib=libc++"
