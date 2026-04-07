@@ -54,7 +54,6 @@ jobs:
         run: >-
           npm run prebuild -- --strip --arch ia32 -r node
           -t 22.0.0
-          -t 24.0.0
           -u ${{ secrets.PREBUILD_TOKEN }}
       - name: Prebuild Electron
         run: >-
