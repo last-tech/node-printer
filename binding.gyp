@@ -26,9 +26,7 @@
       'include_dirs' : [
         "<!(node -e \"require('nan')\")"
       ],
-      'cflags_cc+': [
-        "-Wno-deprecated-declarations"
-      ],
+      'cflags_cc': ['-std=c++20', '-Wno-deprecated-declarations'],
       'conditions': [
         # common exclusions
         ['OS!="linux"', {'sources/': [['exclude', '_linux\\.cc$']]}],
@@ -64,13 +62,18 @@
             'cflags' : [
               "-O2"
             ],
+            'msvs_settings': {
+              'VCCLCompilerTool': {
+                'AdditionalOptions': ['/std:c++20']
+              }
+            },
         }],
         ['OS=="mac"', {
           'cflags':[
             "-stdlib=libc++"
           ],
           'xcode_settings': {
-            "OTHER_CPLUSPLUSFLAGS":["-std=c++17", "-stdlib=libc++"],
+            "OTHER_CPLUSPLUSFLAGS":["-std=c++20", "-stdlib=libc++"],
             "OTHER_LDFLAGS": ["-stdlib=libc++"],
             "MACOSX_DEPLOYMENT_TARGET": "10.7",
           },
