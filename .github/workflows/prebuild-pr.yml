@@ -14,24 +14,27 @@ jobs:
           node-version: 24.x
       - uses: actions/checkout@v6
       - run: npm i
-      - name: Prebuild
+      - name: Prebuild Node
         run: >-
-          npm run prebuild -- --strip --arch x64
-          -t 22.0.0 -r node
-          -t 24.0.0 -r node
-          -t 29.0.0-alpha.1 -r electron
-          -t 31.0.0-alpha.1 -r electron
-          -t 31.0.0-beta.7 -r electron
-          -t 32.0.0-alpha.1 -r electron
-          -t 33.0.0-alpha.1 -r electron
-          -t 34.0.0-alpha.1 -r electron
-          -t 35.0.0-alpha.1 -r electron
-          -t 36.0.0-alpha.1 -r electron
-          -t 37.0.0-alpha.1 -r electron
-          -t 38.0.0-alpha.1 -r electron
-          -t 39.0.0-alpha.1 -r electron
-          -t 40.0.0-alpha.2 -r electron
-          -t 41.0.0-alpha.1 -r electron
+          npm run prebuild -- --strip --arch x64 -r node
+          -t 22.0.0
+          -t 24.0.0
+      - name: Prebuild Electron
+        run: >-
+          npm run prebuild -- --strip --arch x64 -r electron
+          -t 29.0.0-alpha.1
+          -t 31.0.0-alpha.1
+          -t 31.0.0-beta.7
+          -t 32.0.0-alpha.1
+          -t 33.0.0-alpha.1
+          -t 34.0.0-alpha.1
+          -t 35.0.0-alpha.1
+          -t 36.0.0-alpha.1
+          -t 37.0.0-alpha.1
+          -t 38.0.0-alpha.1
+          -t 39.0.0-alpha.1
+          -t 40.0.0-alpha.2
+          -t 41.0.0-alpha.1
 
   prebuild-windows-32:
     name: Prebuild Binaries for Windows ia32
@@ -43,21 +46,23 @@ jobs:
           node-version: 24.x
       - uses: actions/checkout@v6
       - run: npm i
-      - name: Prebuild
+      - name: Prebuild Node
         run: >-
-          npm run prebuild -- --strip --arch ia32
-          -t 22.0.0 -r node
-          -t 24.0.0 -r node
-          -t 29.0.0-alpha.1 -r electron
-          -t 31.0.0-alpha.1 -r electron
-          -t 31.0.0-beta.7 -r electron
-          -t 32.0.0-alpha.1 -r electron
-          -t 33.0.0-alpha.1 -r electron
-          -t 34.0.0-alpha.1 -r electron
-          -t 35.0.0-alpha.1 -r electron
-          -t 36.0.0-alpha.1 -r electron
-          -t 37.0.0-alpha.1 -r electron
-          -t 38.0.0-alpha.1 -r electron
-          -t 39.0.0-alpha.1 -r electron
-          -t 40.0.0-alpha.2 -r electron
-          -t 41.0.0-alpha.1 -r electron
+          npm run prebuild -- --strip --arch ia32 -r node
+          -t 22.0.0
+      - name: Prebuild Electron
+        run: >-
+          npm run prebuild -- --strip --arch ia32 -r electron
+          -t 29.0.0-alpha.1
+          -t 31.0.0-alpha.1
+          -t 31.0.0-beta.7
+          -t 32.0.0-alpha.1
+          -t 33.0.0-alpha.1
+          -t 34.0.0-alpha.1
+          -t 35.0.0-alpha.1
+          -t 36.0.0-alpha.1
+          -t 37.0.0-alpha.1
+          -t 38.0.0-alpha.1
+          -t 39.0.0-alpha.1
+          -t 40.0.0-alpha.2
+          -t 41.0.0-alpha.1
