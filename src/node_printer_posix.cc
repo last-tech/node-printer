@@ -248,10 +248,10 @@ namespace
     protected:
         int num_options;
         virtual void free() {
-            if(_value != NULL)
+            if(this->_value != NULL)
             {
-                cupsFreeOptions(num_options, get());
-                _value = NULL;
+                cupsFreeOptions(num_options, this->get());
+                this->_value = NULL;
                 num_options = 0;
             }
         }
@@ -268,7 +268,7 @@ namespace
                 Nan::Utf8String keyStr(V8_LOCAL_STRING_FROM_VALUE(key));
                 Nan::Utf8String valStr(V8_LOCAL_STRING_FROM_VALUE(Nan::Get(iV8Options, key).ToLocalChecked()));
 
-                num_options = cupsAddOption(*keyStr, *valStr, num_options, &_value);
+                num_options = cupsAddOption(*keyStr, *valStr, num_options, &this->_value);
             }
         }
 
