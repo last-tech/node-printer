@@ -21,6 +21,7 @@ jobs:
           npm run prebuild -- --strip --arch x64 -r node
           -t 22.0.0
           -t 24.0.0
+          -t 26.0.0
           -u ${{ secrets.PREBUILD_TOKEN }}
       - name: Prebuild Electron
         run: >-
@@ -38,6 +39,8 @@ jobs:
           -t 39.0.0-alpha.1
           -t 40.0.0-alpha.2
           -t 41.0.0-alpha.1
+          -t 42.0.0-alpha.1
+          -t 43.0.0-alpha.1
           -u ${{ secrets.PREBUILD_TOKEN }}
 
   prebuild-windows-32:
@@ -71,4 +74,6 @@ jobs:
           -t 39.0.0-alpha.1
           -t 40.0.0-alpha.2
           -t 41.0.0-alpha.1
+          -t 42.0.0-alpha.1
+          -t 43.0.0-alpha.1
           -u ${{ secrets.PREBUILD_TOKEN }}
