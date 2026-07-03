@@ -1,59 +1,89 @@
-Node Printer Prebuild
-============
-Native bind printers on Windows OS from Node.js, electron and node-webkit.
+# @lastapp/node-printer
+
+Native printer bindings for **Node.js** and **Electron**. Enumerate printers, inspect and control print jobs, and send raw or file-based jobs directly to a printer from JavaScript — on Windows (Winspool) and POSIX/macOS ([CUPS](https://www.cups.org/)).
 
 [![npm version](https://badge.fury.io/js/@lastapp%2Fnode-printer.svg)](https://www.npmjs.com/package/@lastapp/node-printer) [![Prebuild Binaries and Publish](https://github.com/last-tech/node-printer/actions/workflows/prebuild-main.yml/badge.svg)](https://github.com/last-tech/node-printer/actions/workflows/prebuild-main.yml)
 
-> It just works with Node 12 because of @thiagoelg in his [PR](https://github.com/tojocky/node-printer/pull/261)
+> Maintained by **[Last.app](https://last.app)** ([last-tech](https://github.com/last-tech)). This is a hard fork of [`printer`](https://github.com/tojocky/node-printer) by **Ion Lupascu**, building on later community work by [@thiagoelg](https://github.com/thiagoelg) (Node 12+ support) and [@ekoeryanto](https://github.com/ekoeryanto) (prebuild + CI). We keep it current with modern Node and Electron and ship prebuilt binaries.
 
-> Prebuild and CI integration courtesy of @ekoeryanto in his [FORK](https://github.com/ekoeryanto/node-printer)
+## Supported runtimes
 
-___
-### **Below is the original README**
-___
-### Reason:
+Prebuilt binaries are published for Windows (`x64` and `ia32`). On other platforms the module is compiled from source at install time (see [Building from source](#building-from-source)).
 
-I was involved in a project where I need to print from Node.JS. This is the reason why I created this project and I want to share my code with others.
+| Runtime | Versions with prebuilt binaries |
+|---------|---------------------------------|
+| Node.js | 22, 24, 26 |
+| Electron | 29, 31–43 |
 
+The minimum supported Node.js version is **22.0.0** (`engines.node >= 22.0.0`). ABI is constant across an Electron major, so any patch release of a listed major is covered.
 
-### Features:
+## Installation
 
-* no dependecies;
-* native method wrappers from Windows  and POSIX (which uses [CUPS 1.4/MAC OS X 10.6](http://cups.org/)) APIs;
-* compatible with node v0.8.x, 0.9.x and v0.11.x (with 0.11.9 and 0.11.13);
-* compatible with node-webkit v0.8.x and 0.9.2;
-* `getPrinters()` to enumerate all installed printers with current jobs and statuses;
-* `getPrinter(printerName)` to get a specific/default printer info with current jobs and statuses;
-* `getPrinterDriverOptions(printerName)` ([POSIX](http://en.wikipedia.org/wiki/POSIX) only) to get a specific/default printer driver options such as supported paper size and other info
-* `getSelectedPaperSize(printerName)` ([POSIX](http://en.wikipedia.org/wiki/POSIX) only) to get a specific/default printer default paper size from its driver options
-* `getDefaultPrinterName()` return the default printer name;
-* `printDirect(options)` to send a job to a specific/default printer, now supports [CUPS options](http://www.cups.org/documentation.php/options.html) passed in the form of a JS object (see `cancelJob.js` example). To print a PDF from windows it is possible by using [node-pdfium module](https://github.com/tojocky/node-pdfium) to convert a PDF format into EMF and after to send to printer as EMF;
-* `printFile(options)`  ([POSIX](http://en.wikipedia.org/wiki/POSIX) only) to print a file;
-* `getSupportedPrintFormats()` to get all possible print formats for printDirect method which depends on OS. `RAW` and `TEXT` are supported from all OS-es;
-* `getJob(printerName, jobId)` to get a specific job info including job status;
-* `setJob(printerName, jobId, command)` to send a command to a job (e.g. `'CANCEL'` to cancel the job);
-* `getSupportedJobCommands()` to get supported job commands for setJob() depends on OS. `'CANCEL'` command is supported from all OS-es.
-
-
-### How to install:
-```
+```sh
 npm install @lastapp/node-printer
+# or
+yarn add @lastapp/node-printer
 ```
 
-### How to use:
+`prebuild-install` fetches a matching prebuilt binary for your platform and runtime. If none is available, it falls back to a source build via `node-gyp`.
 
-See [examples](https://github.com/last-tech/node-printer/tree/main/examples)
+## Usage
 
-### Author(s):
+```js
+const printer = require('@lastapp/node-printer');
 
-* Ion Lupascu, ionlupascu@gmail.com
+// List installed printers with their jobs and status
+console.log(printer.getPrinters());
 
-### Contibutors:
+// Send a raw job to a specific printer
+printer.printDirect({
+  data: 'Hello world',
+  printer: 'My_Printer',
+  type: 'RAW',
+  success: (jobId) => console.log('sent, job id:', jobId),
+  error: (err) => console.error(err),
+});
+```
 
-* Thiago Lugli, @thiagoelg
-* Eko Eryanto, @ekoeryanto
+See the [`examples`](https://github.com/last-tech/node-printer/tree/main/examples) directory for more, and [`types/index.d.ts`](https://github.com/last-tech/node-printer/blob/main/types/index.d.ts) for the full typed API.
 
-Feel free to download, test and propose new futures
+## API
 
-### License:
- [The MIT License (MIT)](http://opensource.org/licenses/MIT)
+| Method | Description |
+|--------|-------------|
+| `getPrinters()` | Enumerate all installed printers with their current jobs and statuses. |
+| `getPrinter(printerName)` | Get a specific (or default) printer's info, jobs and status. |
+| `getPrinterDriverOptions(printerName)` | Get a printer's driver options such as supported paper sizes. *(POSIX only)* |
+| `getSelectedPaperSize(printerName)` | Get a printer's default paper size from its driver options. *(POSIX only)* |
+| `getDefaultPrinterName()` | Return the default printer name. |
+| `printDirect(options)` | Send a job to a printer. Supports [CUPS options](https://www.cups.org/doc/options.html) passed as a JS object. |
+| `printFile(options)` | Print a file. *(POSIX only)* |
+| `getSupportedPrintFormats()` | List supported print formats. `RAW` and `TEXT` are supported on all OSes. |
+| `getJob(printerName, jobId)` | Get a specific job's info, including status. |
+| `setJob(printerName, jobId, command)` | Send a command to a job (e.g. `'CANCEL'`). |
+| `getSupportedJobCommands()` | List supported job commands. `'CANCEL'` is supported on all OSes. |
+
+To print a PDF on Windows, convert it to EMF first (e.g. with [node-pdfium](https://github.com/tojocky/node-pdfium)) and send it as EMF.
+
+## Building from source
+
+A source build runs automatically when no prebuilt binary matches your platform/runtime. Requirements:
+
+- A C++20 toolchain
+  - **Windows**: Visual Studio with the *Desktop development with C++* workload
+  - **macOS**: Xcode Command Line Tools
+  - **Linux**: `build-essential`
+- **POSIX only**: CUPS development headers (`libcups2-dev` on Debian/Ubuntu; bundled on macOS)
+- Python 3 (for `node-gyp`)
+
+```sh
+npm run rebuild
+```
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+- Original author: Ion Lupascu (`ionlupascu@gmail.com`)
+- Contributors: [@thiagoelg](https://github.com/thiagoelg), [@ekoeryanto](https://github.com/ekoeryanto)
+- Maintained by [Last.app](https://last.app)
