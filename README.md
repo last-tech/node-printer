@@ -13,7 +13,7 @@ Prebuilt binaries are published for Windows (`x64` and `ia32`). On other platfor
 | Runtime | Versions with prebuilt binaries |
 |---------|---------------------------------|
 | Node.js | 22, 24, 26 |
-| Electron | 29, 31–43 |
+| Electron | 31–43 |
 
 The minimum supported Node.js version is **22.0.0** (`engines.node >= 22.0.0`). ABI is constant across an Electron major, so any patch release of a listed major is covered.
 
