@@ -2,8 +2,9 @@ name: Prebuild Binaries and Publish
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
   prebuild-windows:
