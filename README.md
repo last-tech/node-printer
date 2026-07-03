@@ -4,7 +4,7 @@ Native printer bindings for **Node.js** and **Electron**. Enumerate printers, in
 
 [![npm version](https://badge.fury.io/js/@lastapp%2Fnode-printer.svg)](https://www.npmjs.com/package/@lastapp/node-printer) [![Prebuild Binaries and Publish](https://github.com/last-tech/node-printer/actions/workflows/prebuild-main.yml/badge.svg)](https://github.com/last-tech/node-printer/actions/workflows/prebuild-main.yml)
 
-> Maintained by **[Last.app](https://last.app)** ([last-tech](https://github.com/last-tech)). This is a hard fork of [`printer`](https://github.com/tojocky/node-printer) by **Ion Lupascu**, building on later community work by [@thiagoelg](https://github.com/thiagoelg) (Node 12+ support) and [@ekoeryanto](https://github.com/ekoeryanto) (prebuild + CI). We keep it current with modern Node and Electron and ship prebuilt binaries.
+> Maintained by **[Last.app](https://last.app)** ([last-tech](https://github.com/last-tech)). This is a hard fork of [`printer`](https://github.com/tojocky/node-printer) by **Ion Lupascu**. We keep it current with modern Node and Electron and ship prebuilt binaries.
 
 ## Supported runtimes
 
@@ -85,5 +85,4 @@ npm run rebuild
 [MIT](https://opensource.org/licenses/MIT)
 
 - Original author: Ion Lupascu (`ionlupascu@gmail.com`)
-- Contributors: [@thiagoelg](https://github.com/thiagoelg), [@ekoeryanto](https://github.com/ekoeryanto)
 - Maintained by [Last.app](https://last.app)
