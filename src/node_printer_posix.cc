@@ -4,7 +4,6 @@
 #include <map>
 #include <utility>
 #include <sstream>
-#include <node_version.h>
 
 #include <cups/cups.h>
 #include <cups/ppd.h>

@@ -16,11 +16,7 @@ NAN_MODULE_INIT(Init) {
     MY_MODULE_SET_METHOD(target, "getSupportedJobCommands", getSupportedJobCommands);
 }
 
-#if NODE_MAJOR_VERSION >= 10
 NAN_MODULE_WORKER_ENABLED(node_printer, Init)
-#else
-NODE_MODULE(node_printer, Init)
-#endif
 
 // Helpers
 

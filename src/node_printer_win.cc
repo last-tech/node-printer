@@ -13,7 +13,6 @@
 #include <map>
 #include <utility>
 #include <sstream>
-#include <node_version.h>
 
 namespace{
     typedef std::map<std::string, DWORD> StatusMapType;
