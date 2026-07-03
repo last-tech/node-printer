@@ -48,7 +48,7 @@
     "node-gyp": "^13.0.1"
   },
   "dependencies": {
-    "nan": "2.26.2",
+    "nan": "2.28.0",
     "prebuild-install": "7.1.1"
   },
   "types": "types/index.d.ts"
