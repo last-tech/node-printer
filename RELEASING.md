@@ -34,7 +34,7 @@ Pushing the `vX.Y.Z` tag is what triggers publishing. That's the whole ritual.
 Targets are enumerated in the `Prebuild Node` / `Prebuild Electron` steps of `prebuild-main.yml` (and mirrored in `prebuild-pr.yml`).
 
 - **Node.js:** 22, 24, 26
-- **Electron:** 29, 31–43
+- **Electron:** 31–43
 
 The ABI is constant across an Electron major, so each target is pinned to a stable `X.0.0` release (Electron 42 uses `42.3.0`, the earliest 42 whose headers compile on MSVC). When a new major reaches a **stable** release, add it as a new `-t X.0.0` line. Avoid prerelease (`-alpha`/`-beta`) targets: their headers can be broken and their ABI can shift before the stable release.
 
