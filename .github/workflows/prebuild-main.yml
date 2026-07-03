@@ -26,21 +26,20 @@ jobs:
       - name: Prebuild Electron
         run: >-
           npm run prebuild -- --strip --arch x64 -r electron
-          -t 29.0.0-alpha.1
-          -t 31.0.0-alpha.1
-          -t 31.0.0-beta.7
-          -t 32.0.0-alpha.1
-          -t 33.0.0-alpha.1
-          -t 34.0.0-alpha.1
-          -t 35.0.0-alpha.1
-          -t 36.0.0-alpha.1
-          -t 37.0.0-alpha.1
-          -t 38.0.0-alpha.1
-          -t 39.0.0-alpha.1
-          -t 40.0.0-alpha.2
-          -t 41.0.0-alpha.1
-          -t 42.0.0-alpha.1
-          -t 43.0.0-alpha.1
+          -t 29.0.0
+          -t 31.0.0
+          -t 32.0.0
+          -t 33.0.0
+          -t 34.0.0
+          -t 35.0.0
+          -t 36.0.0
+          -t 37.0.0
+          -t 38.0.0
+          -t 39.0.0
+          -t 40.0.0
+          -t 41.0.0
+          -t 42.0.0
+          -t 43.0.0
           -u ${{ secrets.PREBUILD_TOKEN }}
 
   prebuild-windows-32:
@@ -61,19 +60,18 @@ jobs:
       - name: Prebuild Electron
         run: >-
           npm run prebuild -- --strip --arch ia32 -r electron
-          -t 29.0.0-alpha.1
-          -t 31.0.0-alpha.1
-          -t 31.0.0-beta.7
-          -t 32.0.0-alpha.1
-          -t 33.0.0-alpha.1
-          -t 34.0.0-alpha.1
-          -t 35.0.0-alpha.1
-          -t 36.0.0-alpha.1
-          -t 37.0.0-alpha.1
-          -t 38.0.0-alpha.1
-          -t 39.0.0-alpha.1
-          -t 40.0.0-alpha.2
-          -t 41.0.0-alpha.1
-          -t 42.0.0-alpha.1
-          -t 43.0.0-alpha.1
+          -t 29.0.0
+          -t 31.0.0
+          -t 32.0.0
+          -t 33.0.0
+          -t 34.0.0
+          -t 35.0.0
+          -t 36.0.0
+          -t 37.0.0
+          -t 38.0.0
+          -t 39.0.0
+          -t 40.0.0
+          -t 41.0.0
+          -t 42.0.0
+          -t 43.0.0
           -u ${{ secrets.PREBUILD_TOKEN }}
