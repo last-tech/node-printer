@@ -23,7 +23,6 @@ jobs:
       - name: Prebuild Electron
         run: >-
           npm run prebuild -- --strip --arch x64 -r electron
-          -t 29.0.0
           -t 31.0.0
           -t 32.0.0
           -t 33.0.0
@@ -55,7 +54,6 @@ jobs:
       - name: Prebuild Electron
         run: >-
           npm run prebuild -- --strip --arch ia32 -r electron
-          -t 29.0.0
           -t 31.0.0
           -t 32.0.0
           -t 33.0.0
