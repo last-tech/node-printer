@@ -40,7 +40,6 @@ jobs:
           -t 41.0.0
           -t 42.3.0
           -t 43.0.0
-          -t 44.0.0-alpha.1
           -u ${{ secrets.PREBUILD_TOKEN }}
 
   prebuild-windows-32:
@@ -75,5 +74,4 @@ jobs:
           -t 41.0.0
           -t 42.3.0
           -t 43.0.0
-          -t 44.0.0-alpha.1
           -u ${{ secrets.PREBUILD_TOKEN }}

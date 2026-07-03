@@ -37,7 +37,6 @@ jobs:
           -t 41.0.0
           -t 42.3.0
           -t 43.0.0
-          -t 44.0.0-alpha.1
 
   prebuild-windows-32:
     name: Prebuild Binaries for Windows ia32
@@ -70,4 +69,3 @@ jobs:
           -t 41.0.0
           -t 42.3.0
           -t 43.0.0
-          -t 44.0.0-alpha.1
