@@ -8,12 +8,12 @@ Native printer bindings for **Node.js** and **Electron**. Enumerate printers, in
 
 ## Supported runtimes
 
-Prebuilt binaries are published for Windows (`x64` and `ia32`). On other platforms the module is compiled from source at install time (see [Building from source](#building-from-source)).
+Prebuilt binaries are published for Windows `x64`, and for `ia32` up to Electron 43 (Electron 44 dropped 32-bit Windows). On other platforms the module is compiled from source at install time (see [Building from source](#building-from-source)).
 
 | Runtime | Versions with prebuilt binaries |
 |---------|---------------------------------|
 | Node.js | 22, 24, 26 |
-| Electron | 31–43 |
+| Electron | 31–45 |
 
 The minimum supported Node.js version is **22.0.0** (`engines.node >= 22.0.0`). ABI is constant across an Electron major, so any patch release of a listed major is covered.
 
